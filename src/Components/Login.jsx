@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { backendBaseURL } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
+
 export const Login = () =>{
     const dispatch = useDispatch();
     const[email,setEmail] = useState("amitsaha@gmail.com");
@@ -13,7 +14,6 @@ export const Login = () =>{
     const handleLogin = async () =>{
         try{
             const res = await axios.post(`${backendBaseURL}/login`, {email,password},{withCredentials:true});
-            console.log(res)
             dispatch(addUser(res.data.user));
             navigator("/");
         }catch(err){

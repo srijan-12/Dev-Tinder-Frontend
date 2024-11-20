@@ -16,7 +16,6 @@ export const Body = () =>{
        try{
         if(userData) return
         const res  = await axios.post(`${backendBaseURL}/profile/view`,{},{withCredentials:true})
-        console.log("called")
         dispatch(addUser(res.data));
        }catch(err){
         navigator("/login")
