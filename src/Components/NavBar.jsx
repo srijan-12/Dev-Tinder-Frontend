@@ -49,6 +49,7 @@ export const NavBar = () =>{
                         </Link>
                     </li>
                     <li><Link to="/connections">Connections</Link></li>
+                    <li><Link to="/pending">Pending requests</Link></li>
                     <li><Link onClick={handleLogOut} to="/login">Logout</Link></li>
                 </ul>
             </div>}
