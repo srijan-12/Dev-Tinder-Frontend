@@ -9,9 +9,12 @@ const pending = createSlice({
         removeRequest : (state,action) =>{
             const newArray = state.filter((r)=> r._id !== action.payload)
             return newArray;
+        },
+        removePendingResquest : (state, action)=>{
+            return null
         }
     }
 })
 
-export const {addRequest, removeRequest} = pending.actions;
+export const {addRequest, removeRequest, removePendingResquest} = pending.actions;
 export default pending.reducer;

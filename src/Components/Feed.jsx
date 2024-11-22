@@ -17,11 +17,12 @@ export const Feed = () =>{
     useEffect(()=>{
         callFeedApi();
     },[]);
+
+    if(!feedArray) return <h1>Something went wrong</h1>
+    if(feedArray <=0) return <h1 className="text-center text-bold text-3xl">No more users to add</h1>
     return(
         <div className="flex flex-col my-8">
-            {feedArray && feedArray.map((user)=>{
-                return <UserInfocard userInfo= {user} key={user._id}/>
-            })}
+            {feedArray && <UserInfocard userInfo= {feedArray[0]} key={feedArray[0]._id}/>}
         </div>
     )
 }

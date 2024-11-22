@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { backendBaseURL } from "../utils/constants";
 import { removeFeed } from "../utils/feedSlice";
+import { removeConnection } from "../utils/userConnection";
+import { removePendingResquest } from "../utils/pending";
 
 export const NavBar = () =>{
     const userData = useSelector(appStore=>appStore.user);
@@ -14,6 +16,8 @@ export const NavBar = () =>{
             const res = await axios.post(`${backendBaseURL}/logout`,{},{withCredentials:true});
             dispatch(removeUser());
             dispatch(removeFeed());
+            dispatch(removeConnection());
+            dispatch(removePendingResquest());
             navigator("/")
         }catch{
             console.log(err.message)
